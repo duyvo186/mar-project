@@ -17,8 +17,8 @@ class backendauthen
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!Auth::guard('backend')->check())
-            return  redirect()->route('b.login')->with(['msg'=>'vui lòng đăng nhập','type'=>'warning']);
-        return $next($request);
+        if (!Auth::guard('backend')->check())
+            // return  redirect()->route('b.login')->with(['msg' => 'vui lòng đăng nhập', 'type' => 'warning']);
+            return $next($request);
     }
 }

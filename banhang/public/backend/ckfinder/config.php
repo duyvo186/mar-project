@@ -22,16 +22,16 @@ session_start();
  */
 function CheckAuthentication()
 {
-	// WARNING : DO NOT simply return "true". By doing so, you are allowing
-	// "anyone" to upload and list the files in your server. You must implement
-	// some kind of session validation here. Even something very simple as...
-	//return isset($_SESSION['admin_name']) && $_SESSION['admin_name'];
+    // WARNING : DO NOT simply return "true". By doing so, you are allowing
+    // "anyone" to upload and list the files in your server. You must implement
+    // some kind of session validation here. Even something very simple as...
+    //return isset($_SESSION['admin_name']) && $_SESSION['admin_name'];
 
-	// ... where $_SESSION['IsAuthorized'] is set to "true" as soon as the
-	// user logs in your system. To be able to use session variables don't
-	// forget to add session_start() at the top of this file.
-	//if()
-	return true;
+    // ... where $_SESSION['IsAuthorized'] is set to "true" as soon as the
+    // user logs in your system. To be able to use session variables don't
+    // forget to add session_start() at the top of this file.
+    //if()
+    return true;
 }
 
 // LicenseKey : Paste your license key here. If left blank, CKFinder will be
@@ -61,7 +61,7 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
-$baseUrl = '/banhang/public/uploads/';
+$baseUrl = '/uploads/';
 
 /*
 $baseDir : the path to the local directory (in the server) which points to the
@@ -80,7 +80,7 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
-$baseDir = 'C:/wamp64/www//banhang/public/uploads/'; //resolveUrl($baseUrl);
+$baseDir = 'C:/xampp/htdocs/banhang2/public/uploads/'; //resolveUrl($baseUrl);
 
 /*
  * ### Advanced Settings
@@ -91,14 +91,14 @@ Thumbnails : thumbnails settings. All thumbnails will end up in the same
 directory, no matter the resource type.
 */
 $config['Thumbnails'] = array(
-	'url' => $baseUrl . '_thumbs',
-	'directory' => $baseDir . '_thumbs',
-	'enabled' => true,
-	'directAccess' => false,
-	'maxWidth' => 100,
-	'maxHeight' => 100,
-	'bmpSupported' => false,
-	'quality' => 80
+    'url' => $baseUrl . '_thumbs',
+    'directory' => $baseDir . '_thumbs',
+    'enabled' => true,
+    'directAccess' => false,
+    'maxWidth' => 100,
+    'maxHeight' => 100,
+    'bmpSupported' => false,
+    'quality' => 80
 );
 
 /*
@@ -106,9 +106,9 @@ Set the maximum size of uploaded images. If an uploaded image is larger, it
 gets scaled down proportionally. Set to 0 to disable this feature.
 */
 $config['Images'] = array(
-	'maxWidth' => 1600,
-	'maxHeight' => 1200,
-	'quality' => 80
+    'maxWidth' => 1600,
+    'maxHeight' => 1200,
+    'quality' => 80
 );
 
 /*
@@ -135,19 +135,19 @@ Subfolders inherit their default settings from their parents' definitions.
 */
 
 $config['AccessControl'][] = array(
-	'role' => '*',
-	'resourceType' => '*',
-	'folder' => '/',
+    'role' => '*',
+    'resourceType' => '*',
+    'folder' => '/',
 
-	'folderView' => true,
-	'folderCreate' => true,
-	'folderRename' => true,
-	'folderDelete' => true,
+    'folderView' => true,
+    'folderCreate' => true,
+    'folderRename' => true,
+    'folderDelete' => true,
 
-	'fileView' => true,
-	'fileUpload' => true,
-	'fileRename' => true,
-	'fileDelete' => true
+    'fileView' => true,
+    'fileUpload' => true,
+    'fileRename' => true,
+    'fileDelete' => true
 );
 
 /*
@@ -196,36 +196,36 @@ to upload `.swf` files only if you understand and can accept this risk.
 */
 $config['DefaultResourceTypes'] = '';
 $config['ResourceType'][] = array(
-	'name' => 'Images',
-	'url' => $baseUrl.'images' ,
-	'directory' => $baseDir.'images'  ,
-	'maxSize' => 0,
-	'allowedExtensions' => 'bmp,gif,jpeg,jpg,png',
-	'deniedExtensions' => ''
+    'name' => 'Images',
+    'url' => $baseUrl . 'images',
+    'directory' => $baseDir . 'images',
+    'maxSize' => 0,
+    'allowedExtensions' => 'bmp,gif,jpeg,jpg,png',
+    'deniedExtensions' => ''
 );
 $config['ResourceType'][] = array(
-	'name' => 'Categories',
-	'url' => $baseUrl . 'categories',
-	'directory' => $baseDir . 'categories',
-	'maxSize' => 0,
-	'allowedExtensions' => 'bmp,gif,jpeg,jpg,png',
-	'deniedExtensions' => ''
+    'name' => 'Categories',
+    'url' => $baseUrl . 'categories',
+    'directory' => $baseDir . 'categories',
+    'maxSize' => 0,
+    'allowedExtensions' => 'bmp,gif,jpeg,jpg,png',
+    'deniedExtensions' => ''
 );
 $config['ResourceType'][] = array(
-	'name' => 'Products',
-	'url' => $baseUrl . 'products',
-	'directory' => $baseDir . 'products',
-	'maxSize' => 0,
-	'allowedExtensions' => 'bmp,gif,jpeg,jpg,png',
-	'deniedExtensions' => ''
+    'name' => 'Products',
+    'url' => $baseUrl . 'products',
+    'directory' => $baseDir . 'products',
+    'maxSize' => 0,
+    'allowedExtensions' => 'bmp,gif,jpeg,jpg,png',
+    'deniedExtensions' => ''
 );
 $config['ResourceType'][] = array(
-	'name' => 'News',
-	'url' => $baseUrl . 'news',
-	'directory' => $baseDir . 'news',
-	'maxSize' => 0,
-	'allowedExtensions' => 'bmp,gif,jpeg,jpg,png',
-	'deniedExtensions' => ''
+    'name' => 'News',
+    'url' => $baseUrl . 'news',
+    'directory' => $baseDir . 'news',
+    'maxSize' => 0,
+    'allowedExtensions' => 'bmp,gif,jpeg,jpg,png',
+    'deniedExtensions' => ''
 );
 
 

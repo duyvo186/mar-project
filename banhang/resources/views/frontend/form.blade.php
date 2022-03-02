@@ -1,30 +1,59 @@
-@extends('frontend.master')
-@section('content')
 
-            <div class="col-md-12 order-md-1 m-5">
-                <h4 class="mb-3">test khong ajax</h4>
-                <form action="{{route('f.f11')}}" method="post">
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="firstName">test</label>
-                            <input type="text" class="form-control" id="ten" placeholder=""
-                                >
-                            <div class="invalid-feedback">
-                                Valid first name is required.
-                            </div>
-                        </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="firstName">nhan ket qua tu server</label>
-                            <input type="text" class="form-control" id="ten" name="ten" placeholder="" value="{{$d??''}}"
-                                >
-                            <div class="invalid-feedback">
-                                Valid first name is required.
-                            </div>
-                        </div>
-                    <hr class="mb-4">
-                    @csrf
-                    <button class="btn btn-primary btn-lg btn-block" type="submit">Hoàn tất</button>
-                </form>
+
+    @if($cart)
+    <div class="cart-header">
+        <div style="font-size: 18px;" class="cart-total"></i><span> Giỏ Hàng </span></div>
+
+        <button class="cart-close"><i class="icofont-close"></i></button>
+    </div>
+
+    <ul class="cart-list">
+
+        @php $tong = 0; @endphp
+        @php $tongtest = 0; @endphp
+        @foreach ($cart as $id=>$item)
+        @php $tongsoluong=$item['soluongmua']; $tongtest+=$tongsoluong; @endphp
+        @php $tt = $item['gia']*$item['soluongmua']; $tong+=$tt; @endphp
+        <li id="maminicart" class="cart-item" >
+            <div class="cart-media"><a href="#"><img id="hinh" src="{{$item["hinh"]}}" alt="product"></a><button
+                    class="cart-delete" onclick="window.location.href='{{route('cart.del',$id)}}';"><i
+                        class="far fa-trash-alt"></i></button></div>
+            <div class="cart-info-group">
+                <div class="cart-info">
+                    <h6><a id="ten" href="product-single.html" >{{$item["ten"]}}</a></h6>
+                    <p id="gia">{{number_format($item["gia"])}}</p>
+                </div>
+                <div class="cart-action-group">
+                    {{-- <input   type="hidden" name="id" value="{{$item->ma}}" /> --}}
+                    <div class="product-action"><button class="action-minus" title="Quantity Minus"><i
+                                class="icofont-minus"></i></button><input id="soluongmua" class="action-input" title="Quantity Number"
+                            type="text" name="soluongmua[{{$id}}]" value="{{$item['soluongmua']}}"><button
+                            class="action-plus" title="Quantity Plus"><i class="icofont-plus"></i></button></div>
+                    <h6>{{number_format($tt)}}</h6>
+                </div>
             </div>
-@endsection
+        </li>
+
+        @endforeach
+
+
+    </ul>
+
+
+    <div class="cart-footer"><button class="coupon-btn">Do you have a coupon code?</button>
+
+        <form class="coupon-form"><input type="text" placeholder="Enter your coupon code"><button
+                type="submit"><span>apply</span></button></form><a class="cart-checkout-btn"
+            href="{{route('checkout.index')}}"><span class="checkout-label">Thanh Toán</span><span
+                class="checkout-price">{{$tong}}</span></a>
+    </div>
+    @else
+    @php
+    $cart=0
+    @endphp
+    @endif
+
+
+
+
+

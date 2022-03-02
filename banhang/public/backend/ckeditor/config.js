@@ -12,10 +12,10 @@ CKEDITOR.editorConfig = function( config ) {
     config.allowedContent = true,
     config.fillEmptyBlocks = false,
     config.fullPage = false,
-    config.enterMode = CKEDITOR.ENTER_BR,	
+    config.enterMode = CKEDITOR.ENTER_BR,
 	config.filebrowserBrowseUrl = PUBLIC+'ckfinder/ckfinder.html',
-	config.forcePasteAsPlainText = false     
-	
+	config.forcePasteAsPlainText = false
+
 };
 CKEDITOR.dtd.$removeEmpty['i'] = false;
 CKEDITOR.dtd.$removeEmpty['span'] = false;

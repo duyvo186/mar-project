@@ -29,13 +29,7 @@
               <span class="text-danger d-block">{{$message}}</span>
          @enderror
           </div>
-          <div class="col-lg-6">
-              <label for="">Mã vạch</label>
-              <input type="text" name="mavach" id="" class=" form-control" placeholder="" value="{{$item->mavach??old('mavach')}}">
-              @error('mavach')
-              <span class="text-danger d-block">{{$message}}</span>
-         @enderror
-          </div>
+         
       </div>
 
 

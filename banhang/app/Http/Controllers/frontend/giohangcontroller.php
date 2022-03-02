@@ -12,6 +12,7 @@ class giohangcontroller extends Controller
 
     public function addtocart(Request $request)
     {
+        // $tongtest = 0;
         if (!$request->id)
             return redirect()->route('f.home');
         $product = Product::where(['ma' => $request->id, 'trangthai' => 1])->first();
@@ -19,7 +20,6 @@ class giohangcontroller extends Controller
             return redirect()->route('f.home');
         if ($product->soluong <= 0)
             return redirect()->route('f.home');
-        // add vao gio hang
         $giohang = session('giohang');
         if (isset($giohang[$product->ma])) {
             $giohang[$product->ma]['soluongmua']++;
@@ -29,14 +29,30 @@ class giohangcontroller extends Controller
                 'ten' => $product->ten,
                 'gia' => $product->gia,
                 'hinh' => $product->hinhdaidien,
+                'mota' => $product->mota,
+                'motachitiet' => $product->motachitiet,
                 'soluonggoc' => $product->soluong,
-                'soluongmua' => 1
+                'soluongmua' => 1,
+                // 'tongtest' => $tongtest,
+
             ];
         }
+
         // cap nhat lai cai gio
         session(['giohang' => $giohang]);
-        return redirect()->route('cart.index');
-        //return response()->json($product, 200);
+
+
+
+        $data = [
+            // 'tongtest' => $tongtest,
+            'cart' => session('giohang'),
+
+
+        ];
+        // $data = [];
+        // $data['giohang'] = session('giohang');
+        // $data['giohang'] = session('giohang');
+        return $data;
     }
     public function update(Request $request)
     {

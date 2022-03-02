@@ -1,74 +1,63 @@
-<footer class="ftco-footer">
+<footer class="footer-part">
     <div class="container">
-      <div class="row mb-5">
-        <div class="col-sm-12 col-md">
-          <div class="ftco-footer-widget mb-4">
-            <h2 class="ftco-heading-2 logo"><a href="#">DuyVo <span>Store</span></a></h2>
-            <p>Far far away, behind the word mountains, far from the countries.</p>
-            <ul class="ftco-footer-social list-unstyled mt-2">
-              <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-              <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
-              <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-12 col-md">
-          <div class="ftco-footer-widget mb-4 ml-md-4">
-            <h2 class="ftco-heading-2">My Accounts</h2>
-            <ul class="list-unstyled">
-              <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My Account</a></li>
-              <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Register</a></li>
-              <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Log In</a></li>
-              <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My Order</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-12 col-md">
-          <div class="ftco-footer-widget mb-4 ml-md-4">
-            <h2 class="ftco-heading-2">Information</h2>
-            <ul class="list-unstyled">
-              <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>About us</a></li>
-              <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Catalog</a></li>
-              <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contact us</a></li>
-              <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Term &amp; Conditions</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-12 col-md">
-           <div class="ftco-footer-widget mb-4">
-            <h2 class="ftco-heading-2">Quick Link</h2>
-            <ul class="list-unstyled">
-              <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>New User</a></li>
-              <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Help Center</a></li>
-              <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Report Spam</a></li>
-              <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Faq's</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-12 col-md">
-          <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Have a Questions?</h2>
-              <div class="block-23 mb-3">
-                <ul>
-                  <li><span class="icon fa fa-map marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                  <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                  <li><a href="#"><span class="icon fa fa-paper-plane pr-4"></span><span class="text">info@yourdomain.com</span></a></li>
-                </ul>
-              </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container-fluid px-0 py-5 bg-black">
-        <div class="container">
-            <div class="row">
-            <div class="col-md-12">
-
-              <p class="mb-0" style="color: rgba(255,255,255,.5);"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">VoHuuDuy/a>
-    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+        <div class="row">
+            <div class="col-sm-6 col-xl-3">
+                <div class="footer-widget"><a class="footer-logo" href="#"><img src="{{asset('frontend/images/logo1.png')}}" alt="logo"></a>
+                    <p class="footer-desc">Vựa Cây Đẹp - chuyên cung cấp cây cảnh uy tín và chất lượng</p>
+                    <ul class="footer-social">
+                        <li><a class="icofont-facebook" href="#"></a></li>
+                        <li><a class="icofont-twitter" href="#"></a></li>
+                        <li><a class="icofont-linkedin" href="#"></a></li>
+                        <li><a class="icofont-instagram" href="#"></a></li>
+                        <li><a class="icofont-pinterest" href="#"></a></li>
+                    </ul>
+                </div>
             </div>
-          </div>
+            <div class="col-sm-6 col-xl-3">
+                <div class="footer-widget contact">
+                    <h3 class="footer-title">Liên Hệ</h3>
+                    <ul class="footer-contact">
+                        <li><i class="icofont-ui-email"></i>
+                            <p><span>huuduy8989@gmail.com</span></p>
+                        </li>
+                        <li><i class="icofont-ui-touch-phone"></i>
+                            <p><span>0792925016</span></p>
+                        </li>
+                        <li><i class="icofont-location-pin"></i>
+                            <p>100 luy ban bich, p hoa thanh, q tan phu</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+                <div class="footer-widget">
+                    <h3 class="footer-title">Danh mục</h3>
+                    <div class="footer-links">
+                        <ul>
+                            <li><a href="#">Trang Chủ</a></li>
+                            <li><a href="#">Cửa Hàng</a></li>
+                            <li><a href="#">Tin Tức</a></li>
+                            <li><a href="#">Liên Hệ</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+                <div class="footer-widget">
+                    <h3 class="footer-title">Fanpage</h3>
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fvuacaydep307%2F&tabs=timeline&width=307&height=148&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=false&appId" width="307" height="148" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>                   </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="col-12">
+                <div class="footer-bottom">
+                    <p class="footer-copytext">© All Copyrights Reserved by <a target="_blank"
+                            href="#">Huu Duy</a></p>
+
+                </div>
+            </div>
         </div>
     </div>
-  </footer>
+</footer>

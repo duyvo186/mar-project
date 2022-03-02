@@ -12,12 +12,49 @@ class ajaxcontroller extends Controller
 
     public function form()
     {
-        return view('frontend.form');
+        $data = [
+            // 'title' => 'Trang chủ',
+            // // 'newproducts' => $dssp,
+            // 'anqua' => $anqua,
+            // 'bongmat' => $bongmat,
+            // 'trongnuoc' => $trongnuoc,
+            // 'noithat' => $noithat,
+            // // 'route' => $this->route,
+            // 'spmoi' => $spmoi,
+            // 'news' => $tintuc,
+            // 'spchitiet' => session('productsingle'),
+            'cart' => session('giohang')
+
+
+        ];
+        return view('frontend.form', $data);
+    }
+    public function minicart()
+    {
+        $data = [
+            // 'title' => 'Trang chủ',
+            // // 'newproducts' => $dssp,
+            // 'anqua' => $anqua,
+            // 'bongmat' => $bongmat,
+            // 'trongnuoc' => $trongnuoc,
+            // 'noithat' => $noithat,
+            // // 'route' => $this->route,
+            // 'spmoi' => $spmoi,
+            // 'news' => $tintuc,
+            // 'spchitiet' => session('productsingle'),
+            'cart' => session('giohang'),
+
+
+        ];
+        return view('frontend.mincart', $data);
     }
     public function form2()
     {
+        $data = [
 
-        return view('frontend.form2',);
+            'cart' => session('giohang'),
+        ];
+        return view('frontend.form2', $data);
     }
     public function smform(Request $request)
     {
@@ -35,10 +72,10 @@ class ajaxcontroller extends Controller
             'so' => $so,
             'color' => $c,
             'str' => $s,
-
+            'cart' => session('giohang'),
         ];
         //return $so;
-        return response()->json($data, 200);
+        // return response()->json($data, 200);
         // }
     }
     //

@@ -29,8 +29,8 @@
               <th>Mã</th>
               <th>Hình</th>
               <th>Tên</th>
-              <th>Loại</th>
-              <th>NCC</th>
+              <th>Trạng Thái</th>
+              <th>Loại Cây</th>
               <th>Giá</th>
               <th>Số lượng</th>
               <th>Tác vụ</th>

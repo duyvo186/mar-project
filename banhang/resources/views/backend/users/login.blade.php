@@ -62,5 +62,12 @@
     </div>
 
 </div>
+<style>
+    body{
+        background: white!important;
+        height: 745px;
+    }
+    </style>
+
 @endsection
 

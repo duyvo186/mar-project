@@ -3,13 +3,18 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
+use Iterator;
+use IteratorAggregate;
+use Traversable;
 
 class psingle extends Controller
 
 {
-
+    var $route = 'psingle';
     // public function edit($id)
     // {
     //     $item = Product::where('ma', $id)
@@ -33,50 +38,54 @@ class psingle extends Controller
     {
         if (!$request->id)
             return redirect()->route('f.home');
-        $product = Product::where(['ma' => $request->id, 'trangthai' => 1])->first();
-        if (!$product)
+        $item = Product::where(['ma' => $request->id, 'trangthai' => 1])->first();
+        if (!$item)
             return redirect()->route('f.home');
-        if ($product->soluong <= 0)
+        if ($item->soluong <= 0)
             return redirect()->route('f.home');
-        //add vao gio hang
-        $giohang = session('giohang');
-        if (isset($giohang[$product->ma])) {
-            $giohang[$product->ma];
+        // add vao gio hang
+        $productsingle = session('productsingle');
+        if (isset($productsingle[$item->ma])) {
+            $productsingle[$item->ma]['soluongmua']++;
         } else {
-            $giohang[$product->ma] = [
-                'ma' => $product->ma,
-                'ten' => $product->ten,
-                'gia' => $product->gia,
-                'hinh' => $product->hinhdaidien,
-                'soluonggoc' => $product->soluong,
+            $productsingle[$item->ma] = [
+                'ma' => $item->ma,
+                'ten' => $item->ten,
+                'gia' => $item->gia,
+                'hinh' => $item->hinhdaidien,
+                'mota' => $item->mota,
+                'motachitiet' => $item->motachitiet,
+                'soluonggoc' => $item->soluong,
                 'soluongmua' => 1
+
             ];
         }
+        //dd($item->supplier);
 
-        //cap nhat lai cai gio
-        session(['giohang' => $giohang]);
+
+        session(['productsingle' => $productsingle]);
         return redirect()->route('pg.index');
     }
     // public function addtocart(Request $request)
     // {
     //     if (!$request->id)
     //         return redirect()->route('f.home');
-    //     $product = Product::where(['ma' => $request->id, 'trangthai' => 1])->first();
-    //     if (!$product)
+    //     $item = Product::where(['ma' => $request->id, 'trangthai' => 1])->first();
+    //     if (!$item)
     //         return redirect()->route('f.home');
-    //     if ($product->soluong <= 0)
+    //     if ($item->soluong <= 0)
     //         return redirect()->route('f.home');
     //     // add vao gio hang
     //     $giohang = session('giohang');
-    //     if (isset($giohang[$product->ma])) {
-    //         $giohang[$product->ma]['soluongmua']++;
+    //     if (isset($giohang[$item->ma])) {
+    //         $giohang[$item->ma]['soluongmua']++;
     //     } else {
-    //         $giohang[$product->ma] = [
-    //             'ma' => $product->ma,
-    //             'ten' => $product->ten,
-    //             'gia' => $product->gia,
-    //             'hinh' => $product->hinhdaidien,
-    //             'soluonggoc' => $product->soluong,
+    //         $giohang[$item->ma] = [
+    //             'ma' => $item->ma,
+    //             'ten' => $item->ten,
+    //             'gia' => $item->gia,
+    //             'hinh' => $item->hinhdaidien,
+    //             'soluonggoc' => $item->soluong,
     //             'soluongmua' => 1
     //         ];
     //     }
@@ -122,44 +131,47 @@ class psingle extends Controller
 
     //     if (!$request->id)
     //         return redirect()->route('f.home');
-    //     $products = Product::where(['ma' => $request->id, 'trangthai' => 1])->first();
+    //     $items = Product::where(['ma' => $request->id, 'trangthai' => 1])->first();
 
-    //     if (!$products)
+    //     if (!$items)
     //         return redirect()->route('f.home');
     //     $dulieu = session('dulieu');
-    //     if (isset($showdulieu[$products->ma])) {
-    //         $dulieu[$products->ma];
+    //     if (isset($showdulieu[$items->ma])) {
+    //         $dulieu[$items->ma];
     //     } else {
-    //         $dulieu[$products->ma] = [
-    //             'ma' => $products->ma,
-    //             'ten' => $products->ten,
-    //             'hinh' => $products->hinhdaidien
+    //         $dulieu[$items->ma] = [
+    //             'ma' => $items->ma,
+    //             'ten' => $items->ten,
+    //             'hinh' => $items->hinhdaidien
     //         ];
     //     }
     //     session(['dulieu' => $dulieu]);
     //     return redirect()->route('pg.index');
     // }
-    public function index()
+    public function themspchitiet()
     {
 
-        // session(['giohang' => null]);
-        // session()->flush();
-        // dd(session('giohang'));
-        // dd($request->all());
-
-        // cap nhat lai cai gio
-        if (!session('giohang')) {
+        //dd($item->supplier);
+        if (!session('productsingle')) {
             return redirect()->route('f.home');
         }
-
-        $data = [
-            'title' => 'Giỏ hàng của bạn',
-            'cart' => session('giohang')
-        ];
-
+        $data =
+            [
+                'pagename' => 'Sản Phẩm Chi Tiết',
+                'spchitiet' => session('productsingle'),
+                'cart' => session('giohang')
+            ];
         return view('frontend.productsingle', $data);
     }
-
+    function is_iterable($cart)
+    {
+        return $cart !== null
+            && (is_array($cart)
+                || $cart instanceof Traversable
+                || $cart instanceof Iterator
+                || $cart instanceof IteratorAggregate
+            );
+    }
     //
 
 }

@@ -17,7 +17,7 @@ class usercontroller extends Controller
     {
         // dd($request->all(0));
         $request->validate([
-            'username' => ['required', 'min:5', 'max:32', 'exists:quantri,ten'],
+            'username' => ['required', 'min:5', 'max:32', 'exists:quantri,username'],
             'password' => ['required', 'min:5', 'max:32']
         ], [
             'username.required' => 'Tên đăng nhập không được trống',
@@ -28,11 +28,12 @@ class usercontroller extends Controller
             'password.min' => 'Mật khẩu từ 5 tới 32 ký tự',
             'password.max' => 'Mật khẩu từ 5 tới 32 ký tự'
         ]);
+
         if (Auth::guard('backend')->attempt([
             'username' => $request->username,
             'password' => $request->password
         ], $request->remember)) {
-            return redirect()->route('product.index')->with(['msg' => 'Xin chào bạn', 'type' => 'success']);
+            return redirect()->route('dash.index')->with(['msg' => 'Xin chào bạn', 'type' => 'success']);
         } else {
             return redirect()->route('b.login')->with(['msg' => 'Thông tin đăng nhập không đúng', 'type' => 'danger']);
         }

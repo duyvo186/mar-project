@@ -57,22 +57,22 @@
       </div>
 
       <div class="form-row">
-          <div class="col-lg-6">
-              <label for="">Nhà cung cấp</label>
-              <select required class="form-control" name="nhacungcap" id="">
-                    <option value="">Chọn nhà cung cấp</option>
-                    @foreach ($ncc as $incc)
-                    <option @if((isset($item) && $item->manhacungcap==$incc->ma) || old('nhacungcap')==$incc->ma) selected="selected" @endif value="{{$incc->ma}}">{{$incc->ten}}</option>
-                    @endforeach
-              </select>
-          </div>
-          <div class="col-lg-6">
-              <label for="">Loại sản phẩm</label>
-              <select required class="form-control" name="loai" id="">
+        <div class="col-lg-6">
+            <label for="">Trạng Thái Sản Phẩm</label>
+            <select required class="form-control" name="loai" id="">
                 <option value="">Chọn danh mục</option>
                 @foreach ($loai as $iloai)
                 <option @if((isset($item) &&  $item->maloai==$iloai->ma) || old('loai')==$iloai->ma) selected="selected" @endif  value="{{$iloai->ma}}">{{$iloai->ten}}</option>
                 @endforeach
+              </select>
+        </div>
+          <div class="col-lg-6">
+              <label for="">Loại cây</label>
+              <select required class="form-control" name="nhacungcap" id="">
+                    <option value="">Chọn loại cây</option>
+                    @foreach ($ncc as $incc)
+                    <option @if((isset($item) && $item->manhacungcap==$incc->ma) || old('nhacungcap')==$incc->ma) selected="selected" @endif value="{{$incc->ma}}">{{$incc->ten}}</option>
+                    @endforeach
               </select>
           </div>
       </div>

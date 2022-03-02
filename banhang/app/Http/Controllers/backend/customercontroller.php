@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+
 use App\Models\customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -75,7 +76,7 @@ class customercontroller extends Controller
 
         $request->validate([
             'ten' => ['required', 'min:5', 'max:255'],
-            'mavach' => ['required', 'min:5', 'max:20', 'unique:sanpham,mavach'],
+
             'sdt' => ['required', 'min:10', 'max:20'],
             'email' => 'bail|required|email',
         ], [
@@ -88,26 +89,24 @@ class customercontroller extends Controller
 
         $item =  customer::create();
         $item->ten = $request->ten;
-        $item->mavach = $request->mavach;
+
         $item->sdt = $request->sdt;
-        $item->subject = $request->subject;
+
         $item->email = $request->email;
-        $item->ngaytao = now();
-        $item->ngaycapnhat = now();
+        $item->trangthai = $request->trangthai;
         $item->save(); // true false
         DB::table('khachhang')->insert(
             [
 
                 "ten" => $request->ten,
-                "mavach" => $request->mavach,
+
                 "sdt" => $request->sdt,
-                "subject" => $request->subject,
+
                 "email" => $request->email,
 
 
                 "trangthai" => $request->trangthai,
-                "ngaytao" => now(),
-                "ngaycapnhat" => now(),
+
             ]
         );
         if ($item->save())
@@ -169,12 +168,12 @@ class customercontroller extends Controller
         if (!$item)
             return redirect()->route($this->route . '.index')->with(['msg' => 'Không tìm thấy item', 'type' => 'danger']);
         $item->ten = $request->ten;
-        $item->mavach = $request->mavach;
+
         $item->sdt = $request->sdt;
         $item->email = $request->email;
-        $item->subject = $request->subject;
+
         $item->trangthai = $request->trangthai;
-        $item->ngaycapnhat = now();
+
         //         // dd($item->ma);
         //         // DB::table('sanpham')->where('ma',$item->ma)->update(
         //         //     [

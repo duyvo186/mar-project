@@ -1,6 +1,7 @@
 @extends('frontend.master')
 @section('content')
 
+
             <div class="col-md-12 order-md-1 m-5">
                 <h4 class="mb-3 title">test ajax</h4>
 {{-- <form action="{{route('f.f22')}}" method="post"> --}}
@@ -25,13 +26,13 @@
                     <hr class="mb-4">
                      {{-- @csrf --}}
                      {{-- @csrf --}}
-                    {{-- {{csrf_field()}} --}} --}}
+                    {{-- {{csrf_field()}} --}}
                     <input id="csrf"type="hidden" value="{{csrf_token()}}"/>
                     <a id="btntest"class="btn btn-primary btn-lg btn-block" type="submit">Hoàn tất</a>
 
 
             </div>
         {{-- </form> --}}
-            <script src="{{asset('public/frontend/js/ajax.js')}}"></script>
+            {{-- <script src="{{asset('public/frontend/js/ajax.js')}}"></script> --}}
 @endsection
 

@@ -30,9 +30,7 @@
               <th>Tên</th>
               <th>SĐT</th>
               <th>Email</th>
-              <th>Subject</th>
-              <th>Note</th>
-              <th>Tác vụ</th>
+
           </tr>
       </thead>
       <tbody>
@@ -42,8 +40,7 @@
             <td>{{$item->ten}}</td>
             <td>{{$item->sdt}}</td>
             <td>{{$item->email}}</td>
-            <td>{{$item->subject}}</td>
-            <td>{{$item->note}}</td>
+
             <td>
                 <a href="{{route($route.'.edit',$item->ma)}}" class="btn btn-sm btn-success">Sửa</a>
                 <form class="d-inline" method="POST" action="{{route($route.'.destroy',$item->ma)}}">

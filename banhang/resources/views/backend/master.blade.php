@@ -20,6 +20,7 @@
             </div>
             <!-- End of Main Content -->
             @include('backend.widgets.footer')
+
         </div>
         <!-- End of Content Wrapper -->
     </div>

@@ -1,6 +1,7 @@
 function openfile(field)
 {
 	 CKFinder.popup( '../../', null, null, function(url) {SetFileField(url,field)} ) ;
+
 }
 
 function SetFileField(fileUrl,id )
